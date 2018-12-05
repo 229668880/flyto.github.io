@@ -16,6 +16,14 @@ function getCookie(name){
      return null;
    }
 }
+function listCookie(){
+  var strcookie = document.cookie;
+  var arrcookie = strcookie.split("; ");
+  for(var i=0; i<arrcookie.length; i++){
+       var arr = arrcookie[i].split("=");
+       document.write(arr[0]+": "+arr[1]+"<br>");
+  }
+}
 </script>
 <script>
 var input=window.location.search;
@@ -53,6 +61,7 @@ if(inputs.length>2){
     1. visit bookmark:  flyto.link?bookmark  <br>
     2. set bookmark: flyto.link?bookmark?www.bookmark.com <br>
     3. search gene:  flyto.link?gene?TP53 <br>
-    4. search Impact Factor: flyto.link?if?Nature <br>
+    4. search Impact Factor: flyto.link?if?Nature <br> <br> <br>
+    <input  id="button" type="button" value="List" onclick="listCookie();">  
 </body>
 </html>
