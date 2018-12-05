@@ -25,19 +25,23 @@ if(inputs.length>2){
    for(i=2;i<inputs.length;i++){
       temp=temp+inputs[i];
    }
-    setCookie(inputs[1],temp);
+   if(temp.substr(0,3).toLowerCase() == "http"){
+       setCookie(inputs[1],temp);
+   }else{
+       setCookie(inputs[1],'http://'+temp);
+   }
 } else {
     var temp=getCookie(inputs[1]);
     if(temp!=null){
       window.location.href=temp;
     } else {
-      window.location.href='www'+inputs[1]+'com';
+      window.location.href='http://www'+inputs[1]+'com';
     }
 }
 </script>
 </head>
 <body>
-    Please input URL like:  flyto.link?pubmed  # pubmed is your bookmark
+    Please input URL like:  flyto.link?pubmed  # pubmed is your bookmark<br>
     You can set up your bookmark by flyto.link?pubmed?https://www.ncbi.nlm.nih.gov
 </body>
 </html>
