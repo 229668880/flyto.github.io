@@ -19,15 +19,20 @@ function getCookie(name){
 </script>
 <script>
 var input=window.location.search;
-var inputs=input.split('/');
-if(inputs.length>1){
-    setCookie(inputs[0],inputs[1]);
+var inputs=input.split('?');
+if(inputs.length>2){
+   var temp='';
+   for(i=2;i<inputs.length;i++){
+      temp=temp+inputs[i];
+   }
+    setCookie(inputs[1],temp);
 } else {
-    window.location.href=getCookie(inputs[0]);
+    window.location.href=getCookie(inputs[1]);
 }
 </script>
 </head>
 <body>
-    Please input URL like:  flyto.link?pubmed
+    Please input URL like:  flyto.link?pubmed  # pubmed is your bookmark
+    You can set up your bookmark by flyto.link?pubmed?https://www.ncbi.nlm.nih.gov
 </body>
 </html>
