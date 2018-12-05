@@ -3,9 +3,7 @@
 <head>
 <script>
 var input=window.location.search;
-var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-var r = window.location.search.substr(1).match(reg); 
-alert(r[0])
+window.location.href='http://www.'+input.substring(1)+'.com';
 </script>
 </head>
 <body>
