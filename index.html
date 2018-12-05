@@ -21,7 +21,22 @@ function listCookie(){
   var arrcookie = strcookie.split("; ");
   for(var i=0; i<arrcookie.length; i++){
        var arr = arrcookie[i].split("=");
-       document.write(arr[0]+": "+arr[1]+"<br>");
+       document.write(arr[0]+": "+unescape(arr[1])+"<br>");
+  }
+}
+function delCookie(name){
+  var exp = new Date();
+  exp.setTime(exp.getTime() - 1);
+  var cval=getCookie(name);
+  if(cval!=null)
+     document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+}
+function rmCookie(){
+  var strcookie = document.cookie;
+  var arrcookie = strcookie.split("; ");
+  for(var i=0; i<arrcookie.length; i++){
+       var arr = arrcookie[i].split("=");
+       delCookie(arr[0]);
   }
 }
 </script>
@@ -62,6 +77,7 @@ if(inputs.length>2){
     2. set bookmark: flyto.link?bookmark?www.bookmark.com <br>
     3. search gene:  flyto.link?gene?TP53 <br>
     4. search Impact Factor: flyto.link?if?Nature <br> <br> <br>
-    <input  id="button" type="button" value="List" onclick="listCookie();">  
+    <input  id="button1" type="button" value="List bookmarks" onclick="listCookie();">  
+    <input  id="button2" type="button" value="Delete bookmarks" onclick="rmCookie();">  
 </body>
 </html>
