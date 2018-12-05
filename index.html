@@ -27,8 +27,12 @@ if(inputs.length>2){
    }
    if(temp.substr(0,3).toLowerCase() == "http"){
        setCookie(inputs[1],temp);
+       document.write("New bookmark: "+inputs[1]+"<br>");
+       document.write("URL: "+temp+"<br>");
    }else{
        setCookie(inputs[1],'http://'+temp);
+       document.write("New bookmark: "+inputs[1]+"<br>");
+       document.write("URL: http://"+temp+"<br>");
    }
 } else {
     var temp=getCookie(inputs[1]);
@@ -41,7 +45,9 @@ if(inputs.length>2){
 </script>
 </head>
 <body>
-    Please input URL like:  flyto.link?pubmed  # pubmed is your bookmark<br>
-    You can set up your bookmark by flyto.link?pubmed?https://www.ncbi.nlm.nih.gov
+    <br>
+    <br>
+    Please input URL with command:  flyto.link?pubmed  # pubmed is your bookmark<br>
+    You can set up your bookmark with command: flyto.link?pubmed?www.ncbi.nlm.nih.gov  # pubmed is the link for www.ncbi.nlm.nih.gov<br>
 </body>
 </html>
