@@ -27,7 +27,12 @@ if(inputs.length>2){
    }
     setCookie(inputs[1],temp);
 } else {
-    window.location.href=getCookie(inputs[1]);
+    var temp=getCookie(inputs[1]);
+    if(temp!=null){
+      window.location.href=temp;
+    } else {
+      window.location.href='www'+inputs[1]+'com';
+    }
 }
 </script>
 </head>
