@@ -26,14 +26,16 @@ function listCookie(){
   var strcookie = document.cookie;
   if(strcookie=='') return null;
   var arrcookie = strcookie.split("; ");
-  for(var i=0; i<arrcookie.length; i++){
-      var arr = arrcookie[i].split("=");
-	   var s='';
-	   s+="<table border='1' cellspacing='0'>";
-	   s+="<tr><th>Bookmark</th><th>Target URL</th></tr>";
+  if(arrcookie>0){
+     var s="";
+     s+="<table border='1' cellspacing='0'>";
+     s+="<tr><th>Bookmark</th><th>Target URL</th></tr>";
+     for(var i=0; i<arrcookie.length; i++){
+           var arr = arrcookie[i].split("=");
 	   s+="<tr><th>"+arr[0]+"</th><th>"+unescape(arr[1])+"</th></tr>";
-	   s+="</table>";
-	   document.getElementById("info").innerHTML=s;
+     }
+     s+="</table>";
+     document.getElementById("info").innerHTML=s;
   }
 }
 function delCookie(name){
