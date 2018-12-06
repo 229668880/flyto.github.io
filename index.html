@@ -72,12 +72,15 @@ if(inputs.length>2){
       window.location.href='https://www.genecards.org/Search/Keyword?queryString='+inputs[2];
    }else {
       if(temp.indexOf("[]")>0){
+	     alert("set dynamic");
 	     setCookie(inputs[1],temp);
 	     document.getElementById("alert").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
 	  }else if(temp.indexOf("[]")==-1 && temp.indexOf(".")>0){
+	     alert("set static");
 	     setCookie(inputs[1],temp);
 	     document.getElementById("alert").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
 	  }else if(temp.indexOf("[]")==-1 && temp.indexOf(".")==-1){
+	     alert("get bookmark");
 	     var tempurl=getCookie(inputs[1]);
 	     var reg = new RegExp( '[]' , "g" );
              var newurl = tempurl.replace(reg,temp);
@@ -97,8 +100,10 @@ if(inputs.length>2){
     <br>
     <br>
     URL commands:<br>
-    1. set statick bookmark: flyto.link?x?www.x.com; flyto.link?x will be directed to http://www.x.com<br>
-    2. set dynamic bookmark: flyto.link?x?www.google.com/[]; flyto.link?x?weather will be directed to http://www.google.com/weather<br> <br>
+    1. set static bookmark: flyto.link?yourbookmark?www.thiswebsite.com<br>
+	flyto.link?yourbookmark will be directed to http://www.thiswebsite.com<br>
+    2. set dynamic bookmark: flyto.link?yourbookmark?www.google.com/?search=[]
+	flyto.link?yourbookmark?weather will be directed to http://www.google.com/?search=weather<br> <br>
 
     If you need new features, please email me: sunnysean@qq.com <br><br>
     <input  id="button1" type="button" value="List bookmarks" onclick="listCookie();">  
