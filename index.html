@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <style>
  th {
     font-weight: normal;
     font-size: 14pix;
  }
 </style>
+
 <script>
 function setCookie(name,value){
    var Days = 30*12; 
@@ -54,6 +56,7 @@ function rmCookie(){
   }
 }
 </script>
+
 <script>
 var input=window.location.search;
 var inputs=input.split('?');
@@ -67,17 +70,15 @@ if(inputs.length>2){
    }else {
       if(temp.indexOf("[]")>0){
 	     setCookie(inputs[1],temp);
-		 document.getElementById("alert").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
+	     document.getElementById("alert").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
 	  }else if(temp.indexOf("[]")==-1 && temp.indexOf(".")>0){
 	     setCookie(inputs[1],temp);
-		 document.getElementById("alert").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
+	     document.getElementById("alert").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
 	  }else if(temp.indexOf("[]")==-1 && temp.indexOf(".")==-1){
 	     var tempurl=getCookie(inputs[1]);
-		 var reg = new RegExp( '[]' , "g" );
-         var newurl = tempurl.replace(reg,temp);
-         window.location.href=newurl;
-	  }else{
-	     return;
+	     var reg = new RegExp( '[]' , "g" );
+             var newurl = tempurl.replace(reg,temp);
+             window.location.href=newurl;
 	  }
    }
 } else {
