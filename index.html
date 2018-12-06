@@ -84,7 +84,6 @@ if(inputs.length>2){
 	     var tempurl=getCookie(inputs[1]);
 	     var reg = new RegExp("\\[\\]","g");
              var newurl = tempurl.replace(reg,temp);
-		  alert(newurl);
              window.location.href=newurl;
 	  }
    }
