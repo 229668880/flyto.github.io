@@ -68,8 +68,9 @@ var inputs=input.split('?');
 if(inputs.length>2){
    var temp='';
    for(i=2;i<inputs.length;i++){
-      temp=temp+"?"+inputs[i];
+      temp=temp+inputs[i]+"?";
    }
+   temp=temp.substr(0,temp.length-1);
    if(inputs[1]=='notnow'){
       window.location.href='https://www.genecards.org/Search/Keyword?queryString='+inputs[2];
    }else {
@@ -98,9 +99,9 @@ if(inputs.length>2){
 <body>
     URL commands:<br>
     1. set static bookmark: flyto.link?yourbookmark?www.thiswebsite.com<br>
-	&nbsp;&nbsp;flyto.link?yourbookmark will be directed to http://www.thiswebsite.com<br><br>
+	&nbsp;&nbsp;&nbsp;flyto.link?yourbookmark will be directed to http://www.thiswebsite.com<br><br>
     2. set dynamic bookmark: flyto.link?yourbookmark?www.google.com/?search=[]<br>
-	&nbsp;&nbsp;flyto.link?yourbookmark?weather will be directed to http://www.google.com/?search=weather <br><br>
+	&nbsp;&nbsp;&nbsp;flyto.link?yourbookmark?weather will be directed to http://www.google.com/?search=weather <br><br>
 
     If you need new features, please email me: sunnysean@qq.com <br><br>
     <input  id="button1" type="button" value="List bookmarks" onclick="listCookie();">  
