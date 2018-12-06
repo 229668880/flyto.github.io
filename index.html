@@ -31,7 +31,7 @@ function listCookie(){
 	   var s='';
 	   s+="<table border='1' cellspacing='0'>";
 	   s+="<tr><th>Bookmark</th><th>Target URL</th></tr>";
-	   s+="<tr><th>"+arr[0]+"</th><th>"+arr[1]+"</th></tr>";
+	   s+="<tr><th>"+arr[0]+"</th><th>"+unescape(arr[1])+"</th></tr>";
 	   s+="</table>";
 	   document.getElementById("info").innerHTML=s;
   }
