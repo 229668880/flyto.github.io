@@ -78,8 +78,8 @@ if(inputs.length>2){
 	     setCookie(inputs[1],temp);
 	     document.getElementById("alert").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
 	  }else if(temp.indexOf("[]")==-1 && temp.indexOf(".")==-1){
-	     var tempurl=getCookie(inputs[0]);
-	     var reg = new RegExp( '[]' , "g" );
+	     var tempurl=getCookie(inputs[1]);
+	     var reg = new RegExp("\\[\\]","g");
              var newurl = tempurl.replace(reg,temp);
              window.location.href=newurl;
 	  }
