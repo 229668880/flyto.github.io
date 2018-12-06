@@ -73,14 +73,15 @@ if(inputs.length>2){
    }else {
       if(temp.indexOf("[]")>0){
 	     setCookie(inputs[1],temp);
-	     document.getElementById("newbookmark").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
+	     document.getElementById("info").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
 	  }else if(temp.indexOf("[]")==-1 && temp.indexOf(".")>0){
 	     setCookie(inputs[1],temp);
-	     document.getElementById("newbookmark").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
+	     document.getElementById("info").innerHTML="New bookmark: "+inputs[1]+"<br> URL: "+temp+"<br>";
 	  }else if(temp.indexOf("[]")==-1 && temp.indexOf(".")==-1){
 	     var tempurl=getCookie(inputs[1]);
 	     var reg = new RegExp("\\[\\]","g");
              var newurl = tempurl.replace(reg,temp);
+		  alert(newurl);
              window.location.href=newurl;
 	  }
    }
@@ -93,9 +94,6 @@ if(inputs.length>2){
 </script>
 </head>
 <body>
-    <div id='newbookmark'></div>
-    <br>
-    <br>
     URL commands:<br>
     1. set static bookmark: flyto.link?yourbookmark?www.thiswebsite.com<br>
 	&nbsp;&nbsp;flyto.link?yourbookmark will be directed to http://www.thiswebsite.com<br><br>
